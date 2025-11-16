@@ -3,15 +3,14 @@ from geo import distance
 
 def main():
     data = sys.stdin.read().strip().split()
-    # 기대 입력: x1 y1 x2 y2 r  (여분 입력이 와도 앞의 5개만 사용)
     x1, y1, x2, y2, r = map(float, data[:5])
 
-    c = distance((x1, y1), (x2, y2))           # 두 점 사이 거리
-    area = math.pi * (r ** 2)                   # 원의 넓이
+    c = distance((x1, y1), (x2, y2))
+    area = math.pi * (r ** 2)
 
-    # 정확히 기대하는 형식으로 출력 (공백/대소문자/등호 위치 주의)
-    print(f"c = {c}")
-    print(f"area = {area}")
+    # 개행을 우리가 직접 제어: 마지막 줄에는 개행을 넣지 않는다
+    sys.stdout.write(f"c = {c}\narea = {area}")
+    # print() 사용 시 자동 개행이 추가될 수 있으므로 sys.stdout.write 사용
 
 if __name__ == "__main__":
     main()
